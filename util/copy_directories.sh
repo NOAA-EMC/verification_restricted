@@ -2,8 +2,8 @@
 
 # --- Configuration ---
 # Replace these with your actual paths
-SOURCE="/home/people/emc/www/htdocs/users/verification/global/gefs/expr/"
-DESTINATION="/home/people/emc/www/htdocs/users/verification_restricted/global/aigefs/dev/"
+SOURCE="/home/people/emc/www/htdocs/users/verification_hold/global/aigefs/expr/"
+DESTINATION="/home/people/emc/www/htdocs/users/verification_restricted/global/aigefs/expr/"
 
 # --- Execution ---
 # Check if source exists
