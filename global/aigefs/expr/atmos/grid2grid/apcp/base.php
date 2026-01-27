@@ -78,7 +78,7 @@
 <script type="text/javascript">
 //========================================================================================
 
-var url = "https://www.emc.ncep.noaa.gov/users/verification_restricted/global/gefs/expr/atmos/grid2grid/images/evs.aigefs.MMMTTTapcp_a24.DDD.PPP_validHHHz_fFFF.RRR.png";
+var url = "https://www.emc.ncep.noaa.gov/users/verification_restricted/global/aigefs/expr/atmos/grid2grid/images/evs.aigefs.MMMTTTapcp_a24.DDD.PPP_validHHHz_fFFF.RRR.png";
 
 //========================================================================================
 

@@ -1,7 +1,7 @@
 import os
 import glob
 
-os.chdir('/home/people/emc/www/htdocs/users/verification/global/gefs/expr/atmos/tar_files')
+os.chdir('/home/people/emc/www/htdocs/users/verification_restricted/global/aigefs/expr/atmos/tar_files')
 
 g2g_tar_file_list = glob.glob('evs.plots.aigefs.atmos.aigefs.grid2grid*tar')
 

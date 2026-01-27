@@ -3,7 +3,7 @@
 # --- Configuration ---
 # Replace these with your actual paths
 SOURCE="/home/people/emc/www/htdocs/users/verification_hold/global/aigefs/expr/"
-DESTINATION="/home/people/emc/www/htdocs/users/verification_restricted/global/aigefs/expr/"
+DESTINATION="/home/people/emc/www/htdocs/users/verification_restricted/global/aigefs/dev/"
 
 # --- Execution ---
 # Check if source exists

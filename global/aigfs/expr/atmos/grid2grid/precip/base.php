@@ -80,7 +80,7 @@
 //User-defined years
 //====================================================================================================
 
-var url = "https://www.emc.ncep.noaa.gov/users/verification_restricted/global/gfs/expr/atmos/grid2grid/images/evs.global_det.MMMTTTapcp_a24.DDD.PPP_validHHHz_fFFF.RRR.png";
+var url = "https://www.emc.ncep.noaa.gov/users/verification_restricted/global/aigfs/expr/atmos/grid2grid/images/evs.global_det.MMMTTTapcp_a24.DDD.PPP_validHHHz_fFFF.RRR.png";
 
 //====================================================================================================
 //Add years & months
