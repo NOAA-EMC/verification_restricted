@@ -123,26 +123,6 @@ metrics.push({
         displayName: "Fraction Skill Score - Width 13",
         name: "fss_width13",
 });
-metrics.push({
-        displayName: "Fraction Skill Score - Width 23",
-        name: "fss_width23",
-});
-metrics.push({
-        displayName: "Fraction Skill Score - Width 33",
-        name: "fss_width33",
-});
-metrics.push({
-        displayName: "Fraction Skill Score - Width 43",
-        name: "fss_width43",
-});
-metrics.push({
-        displayName: "Fraction Skill Score - Width 53",
-        name: "fss_width53",
-});
-metrics.push({
-        displayName: "Fraction Skill Score - Width 63",
-        name: "fss_width63",
-});
 
 dateranges.push({
         displayName: "Last 31 Days",
@@ -245,38 +225,6 @@ regions.push({
 });
 
 thresholds.push({
-        displayName: "≥ 0.1 mm",
-        name: "_ge0p1.",
-});
-thresholds.push({
-        displayName: "≥ 0.5 mm",
-        name: "_ge0p5.",
-});
-thresholds.push({
-        displayName: "≥ 1 mm",
-        name: "_ge1.",
-});
-thresholds.push({
-        displayName: "≥ 5 mm",
-        name: "_ge5.",
-});
-thresholds.push({
-        displayName: "≥ 10 mm",
-        name: "_ge10.",
-});
-thresholds.push({
-        displayName: "≥ 25 mm",
-        name: "_ge25.",
-});
-thresholds.push({
-        displayName: "≥ 50 mm",
-        name: "_ge50.",
-});
-thresholds.push({
-        displayName: "≥ 75 mm",
-        name: "_ge75.",
-});
-thresholds.push({
         displayName: "≥ 0.01 in",
         name: "_ge0p254.",
 });
@@ -314,12 +262,12 @@ fhrmean_forecasthours = ["384"]
 perfdiag_forecasthours = ["024", "048", "072", "096", "120", "144", "168", "192", "216", "240", "264", "288", "312", "336", "360", "384"]
 perfdiag_metrics = ["ctc"]
 perfdiag_metrics_name = ["Probability of Detection and Success Ratio"]
-non_perfdiag_metrics = ["ets", "fbias", "fss_width1", "fss_width13", "fss_width23", "fss_width33", "fss_width43", "fss_width53", "fss_width63"]
-non_perfdiag_metrics_name = ["Equitable Threat Score", "Frequency Bias", "Fraction Skill Score - Width 1", "Fraction Skill Score - Width 13", "Fraction Skill Score - Width 23", "Fraction Skill Score - Width 33", "Fraction Skill Score - Width 43", "Fraction Skill Score - Width 53", "Fraction Skill Score - Width 63"]
+non_perfdiag_metrics = ["ets", "fbias", "fss_width1", "fss_width13"]
+non_perfdiag_metrics_name = ["Equitable Threat Score", "Frequency Bias", "Fraction Skill Score - Width 1", "Fraction Skill Score - Width 13"]
 perfdiag_thresholds = ["."]
 perfdiag_thresholds_name = ["All"]
-non_perfdiag_thresholds = ["_ge0p1.", "_ge0p5.", "_ge1.", "_ge5.", "_ge10.", "_ge25.", "_ge50.", "_ge75.", "_ge0p254.", "_ge2p54.", "_ge6p35.", "_ge12p7.", "_ge25p4.", "_ge50p8.", "_ge76p2.", "_ge101p6."]
-non_perfdiag_thresholds_name = ["≥ 0.1 mm", "≥ 0.5 mm", "≥ 1 mm", "≥ 5 mm", "≥ 10 mm", "≥ 25 mm", "≥ 50 mm", "≥ 75 mm", "≥ 0.01 in", "≥ 0.1 in", "≥ 0.25 in", "≥ 0.5 in", "≥ 1 in", "≥ 2 in", "≥ 3 in", "≥ 4 in"]
+non_perfdiag_thresholds = ["_ge0p254.", "_ge2p54.", "_ge6p35.", "_ge12p7.", "_ge25p4.", "_ge50p8.", "_ge76p2.", "_ge101p6."]
+non_perfdiag_thresholds_name = ["≥ 0.01 in", "≥ 0.1 in", "≥ 0.25 in", "≥ 0.5 in", "≥ 1 in", "≥ 2 in", "≥ 3 in", "≥ 4 in"]
 regions_name = ["CONUS", "CONUS - East", "CONUS - West", "CONUS - South", "CONUS - Central"]
 fss_regions = ["g240_buk_conus", "g240_buk_conus_e", "g240_buk_conus_w", "g240_buk_conus_s", "g240_buk_conus_c"]
 non_fss_regions = ["g211_buk_conus", "g211_buk_conus_e", "g211_buk_conus_w", "g211_buk_conus_s", "g211_buk_conus_c"]
@@ -348,7 +296,7 @@ function initialize(){
 		validhour: "12",
 		forecasthour: "024",
 		region: "g211_buk_conus",
-		threshold: "_ge0p1."
+		threshold: "_ge0p254."
         };
 
 

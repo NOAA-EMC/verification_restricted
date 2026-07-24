@@ -1,7 +1,14 @@
 import os
 import glob
+import datetime as dt
 
-os.chdir('/home/people/emc/www/htdocs/users/verification/global/gefs/expr/atmos/tar_files')
+pdym2=(dt.datetime.now()-dt.timedelta(days=3)).strftime('%Y%m%d')
+
+os.chdir('/home/people/cpc/lchen/evs_test_tar/eagle/atmos.'+pdym2+'/')
+
+os.system("cp -v *.tar /home/people/emc/www/htdocs/users/verification_restricted/global/aigefs/expr/atmos/tar_files")
+
+os.chdir('/home/people/emc/www/htdocs/users/verification_restricted/global/aigefs/expr/atmos/tar_files')
 
 g2g_tar_file_list = glob.glob('evs.plots.aigefs.atmos.aigefs.grid2grid*tar')
 
@@ -42,5 +49,4 @@ for profile_tar_file in profile_tar_file_list:
         os.makedirs(image_dir)
     os.system('tar -xvf '+profile_tar_file+' -C '+image_dir)
     os.remove(profile_tar_file)
-
 

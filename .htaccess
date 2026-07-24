@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Restricted Files"
+AuthUserFile /var/www/emc/htdocs/users/verification_restricted/.htpass
+Require valid-user

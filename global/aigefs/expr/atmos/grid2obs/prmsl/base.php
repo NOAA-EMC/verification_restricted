@@ -201,7 +201,7 @@ function initialize(){
 	imageObj = {
 	        plottype: "timeseries",
 		metric: "acc",
-	        daterange: "last90days",
+	        daterange: "last31days",
 		validhour: "00z",
 		forecasthour: "120",
 		level: "z0",

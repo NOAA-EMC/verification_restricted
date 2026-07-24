@@ -61,39 +61,15 @@ function populateMenu(mode){
                         element.add(option);
                 }
         }
-	else if(mode == 'variable'){
-                var element = document.getElementById("variable");
-                for(i = element.options.length - 1 ; i >= 0 ; i--){element.remove(i);}
-
-                for(i=0; i<variables.length; i++){
-                        var option = document.createElement("option");
-                        option.text = variables[i].displayName;
-                        option.value = variables[i].name;
-                        element.add(option);
-                }
-        }
-	else if(mode == 'region'){
-                var element = document.getElementById("region");
-                for(i = element.options.length - 1 ; i >= 0 ; i--){element.remove(i);}
-
-                for(i=0; i<regions.length; i++){
-                        var option = document.createElement("option");
-                        option.text = regions[i].displayName;
-                        option.value = regions[i].name;
-                        element.add(option);
-                }
-        }
 }
 
 //Format URL to the requested items
-function getURL(plottype,metric,daterange,validhour,forecasthour,variable,region,frame){
+function getURL(plottype,metric,daterange,validhour,forecasthour,frame){
         var newurl = url.replace("PPP",plottype);
 	var newurl = newurl.replace("MMM",metric);
 	var newurl = newurl.replace("DDD",daterange);
 	var newurl = newurl.replace("HHH",validhour);
 	var newurl = newurl.replace("FFF",forecasthour);
-	var newurl = newurl.replace("VVV",variable);
-	var newurl = newurl.replace("RRR",region);
 	for(var i=0; i<5; i++){
 		newurl = newurl.replace("Z",frame);
 	}
@@ -118,7 +94,7 @@ function showImage(){
 	
 	//Display image
 	//document.getElementById('loading').style.display = "none";
-	var url = getURL(imageObj.plottype,imageObj.metric,imageObj.daterange,imageObj.validhour,imageObj.forecasthour,imageObj.variable,imageObj.region,i);
+	var url = getURL(imageObj.plottype,imageObj.metric,imageObj.daterange,imageObj.validhour,imageObj.forecasthour,i);
 	document.map_image.src = url;
 	
 	//Update dropdown menus
@@ -129,8 +105,6 @@ function showImage(){
 	document.getElementById("daterange").selectedIndex = searchByName(imageObj.daterange,dateranges);
         document.getElementById("validhour").selectedIndex = searchByName(imageObj.validhour,validhours);
 	document.getElementById("forecasthour").selectedIndex = searchByName(imageObj.forecasthour,forecasthours);
-	document.getElementById("variable").selectedIndex = searchByName(imageObj.variable,variables);
-	document.getElementById("region").selectedIndex = searchByName(imageObj.region,regions);
 
 	//Update URL in address bar
 	generate_url();
@@ -219,6 +193,42 @@ function changePlotType(id){
 	preload(imageObj);
 	showImage();
 	document.getElementById("plottype").blur();
+
+        var selected_plottype = document.getElementById("plottype").value;
+	
+	//Forecast Hours
+        var selected_forecasthour = document.getElementById("forecasthour").value;
+        var element = document.getElementById("forecasthour");
+        for(i = element.options.length - 1 ; i >= 0 ; i--){element.remove(i);}
+	if(selected_plottype=="timeseries"){
+		plottype_forecasthours = timeseries_forecasthours;
+        }
+	forecasthours = [];
+        for(i=0; i<plottype_forecasthours.length; i++){
+        forecasthours.push({
+                displayName: "F"+plottype_forecasthours[i],
+                name: plottype_forecasthours[i],
+                })
+        }
+	for(i=0; i<forecasthours.length; i++){
+        var option = document.createElement("option");
+        option.text = forecasthours[i].displayName;
+        option.value = forecasthours[i].name;
+        element.add(option);
+        }
+        var fhrs_values= [];
+        for(i=0; i<element.options.length; i++){
+               fhrs_values.push(element.options[i].value);
+        }
+        if(fhrs_values.indexOf(selected_forecasthour) != -1){
+               var idx = fhrs_values.indexOf(selected_forecasthour);
+               element.options[idx].selected = true;
+               element.onchange();
+        }
+        else{
+               element.options[0].selected = true;
+               element.onchange();
+        }
 }
 
 //Change the metric from dropdown menu
@@ -227,6 +237,9 @@ function changeMetric(id){
         preload(imageObj);
         showImage();
         document.getElementById("metric").blur();
+
+	var selected_metric = document.getElementById("metric").value;
+
 }
 
 //Change the date range from dropdown menu
@@ -251,22 +264,6 @@ function changeForecastHour(id){
         preload(imageObj);
         showImage();
         document.getElementById("forecasthour").blur();
-}
-
-//Change the variable from dropdown menu
-function changeVariable(id){
-        imageObj.variable = id;
-        preload(imageObj);
-        showImage();
-        document.getElementById("variable").blur();
-}
-
-//Change the region from dropdown menu
-function changeRegion(id){
-        imageObj.region = id;
-        preload(imageObj);
-        showImage();
-        document.getElementById("region").blur();
 }
 
 // Adds zeros in front of the integer

@@ -306,7 +306,31 @@ function changePlotType(id){
                 plottype_thresholds = no_thresholds;
                 plottype_thresholds_name = no_thresholds_name;
         }
-        else{
+        else if(selected_metric=="s1"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }
+        else if(selected_metric=="fstdev"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }
+	else if(selected_metric=="fgbar"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }
+        else if(selected_metric=="fgmag"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }
+        else if(selected_metric=="mag_rmse"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }
+        else if(selected_metric=="laplace_rmse"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }
+	else{
                 plottype_thresholds = non_perfdiag_thresholds;
                 plottype_thresholds_name = non_perfdiag_thresholds_name;
         }
@@ -402,7 +426,31 @@ function changeMetric(id){
                 plottype_thresholds = no_thresholds;
                 plottype_thresholds_name = no_thresholds_name;
         }
-        else{
+        else if(selected_metric=="s1"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }
+        else if(selected_metric=="fstdev"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }
+	else if(selected_metric=="fgbar"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }
+        else if(selected_metric=="fgmag"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }
+        else if(selected_metric=="mag_rmse"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }
+        else if(selected_metric=="laplace_rmse"){
+                plottype_thresholds = no_thresholds;
+                plottype_thresholds_name = no_thresholds_name;
+        }	
+	else{
                 plottype_thresholds = non_perfdiag_thresholds;
                 plottype_thresholds_name = non_perfdiag_thresholds_name;
         }

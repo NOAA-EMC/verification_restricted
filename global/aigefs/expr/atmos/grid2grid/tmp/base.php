@@ -115,6 +115,30 @@ metrics.push({
         displayName: " Continuous Ranked Probability Skill Score",
         name: "crpss",
 });
+metrics.push({
+        displayName: "S1 Score",
+        name: "s1",
+});
+//metrics.push({
+//        displayName: "Forecast Standard Deviation",
+//        name: "fstdev",
+//});
+metrics.push({
+        displayName: "Mean Absolute Value of Forecast Gradients",
+        name: "fgbar",
+});
+metrics.push({
+        displayName: "Mean Forecast Gradient Magnitudes",
+        name: "fgmag",
+});
+metrics.push({
+        displayName: "RMSE of Gradient Magnitudes",
+        name: "mag_rmse",
+});
+metrics.push({
+        displayName: "RMSE of the Laplace Transformed Gradient Magnitudes",
+        name: "laplace_rmse",
+});
 
 dateranges.push({
         displayName: "Last 31 Days",
@@ -200,7 +224,7 @@ function initialize(){
 	imageObj = {
 	        plottype: "timeseries",
 		metric: "acc",
-	        daterange: "last90days",
+	        daterange: "last31days",
 		validhour: "00z",
 		forecasthour: "120",
 		level: "850",

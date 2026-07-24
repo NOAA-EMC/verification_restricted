@@ -108,10 +108,6 @@ metrics.push({
 });
 
 dateranges.push({
-        displayName: "Last 31 Days",
-        name: "last31days",
-});
-dateranges.push({
         displayName: "Last 90 Days",
         name: "last90days",
 });
@@ -134,100 +130,28 @@ validhours.push({
 });
 
 forecasthours.push({
-        displayName: "F006",
-        name: "006",
-});
-forecasthours.push({
-        displayName: "F012",
-        name: "012",
-});
-forecasthours.push({
-        displayName: "F018",
-        name: "018",
-});
-forecasthours.push({
         displayName: "F024",
         name: "024",
-});
-forecasthours.push({
-        displayName: "F030",
-        name: "030",
-});
-forecasthours.push({
-        displayName: "F036",
-        name: "036",
-});
-forecasthours.push({
-        displayName: "F042",
-        name: "042",
-});
-forecasthours.push({
-        displayName: "F048",
-        name: "048",
-});
-forecasthours.push({
-        displayName: "F054",
-        name: "054",
-});
-forecasthours.push({
-        displayName: "F060",
-        name: "060",
-});
-forecasthours.push({
-        displayName: "F066",
-        name: "066",
 });
 forecasthours.push({
         displayName: "F072",
         name: "072",
 });
 forecasthours.push({
-        displayName: "F096",
-        name: "096",
-});
-forecasthours.push({
         displayName: "F120",
         name: "120",
-});
-forecasthours.push({
-        displayName: "F144",
-        name: "144",
 });
 forecasthours.push({
         displayName: "F168",
         name: "168",
 });
 forecasthours.push({
-        displayName: "F192",
-        name: "192",
-});
-forecasthours.push({
-        displayName: "F216",
-        name: "216",
-});
-forecasthours.push({
         displayName: "F240",
         name: "240",
 });
 forecasthours.push({
-        displayName: "F264",
-        name: "264",
-});
-forecasthours.push({
-        displayName: "F288",
-        name: "288",
-});
-forecasthours.push({
         displayName: "F312",
         name: "312",
-});
-forecasthours.push({
-        displayName: "F336",
-        name: "336",
-});
-forecasthours.push({
-        displayName: "F360",
-        name: "360",
 });
 forecasthours.push({
         displayName: "F384",
@@ -323,7 +247,7 @@ regions.push({
         name: "buk_srk",
 });
 
-timeseries_forecasthours = ["006", "012", "018", "024", "030", "036", "042", "048", "054", "060", "066", "072", "096", "120", "144", "168", "192", "216", "240", "264", "288", "312", "336", "360", "384"]
+timeseries_forecasthours = ["024", "072", "120", "168", "240", "312", "384"]
 fhrmean_forecasthours = ["384"]
 //====================================================================================================
 //Initialize the page
@@ -346,7 +270,7 @@ function initialize(){
 	imageObj = {
 	        plottype: "timeseries",
 		metric: "me",
-	        daterange: "last31days",
+	        daterange: "last90days",
 		validhour: "00",
 		forecasthour: "024",
 		region: "buk_conus",

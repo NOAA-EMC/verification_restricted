@@ -131,6 +131,30 @@ metrics.push({
         displayName: "Fractions Skill Score - Width 3",
         name: "fss_width3",
 });
+metrics.push({
+        displayName: "S1 Score",
+        name: "s1",
+});
+//metrics.push({
+//        displayName: "Forecast Standard Deviation",
+//        name: "fstdev",
+//});
+metrics.push({
+        displayName: "Mean Absolute Value of Forecast Gradients",
+        name: "fgbar",
+});
+metrics.push({
+        displayName: "Mean Forecast Gradient Magnitudes",
+        name: "fgmag",
+});
+metrics.push({
+        displayName: "RMSE of Gradient Magnitudes",
+        name: "mag_rmse",
+});
+metrics.push({
+        displayName: "RMSE of the Laplace Transformed Gradient Magnitudes",
+        name: "laplace_rmse",
+});
 
 dateranges.push({
         displayName: "Last 31 Days",
@@ -207,8 +231,8 @@ thresholds.push({
 
 timeseries_forecasthours = ["24", "72", "120", "240"]
 fhrmean_forecasthours = ["384"]
-non_perfdiag_metrics = ["rmse_sprd", "me_mae", "crps", "ets", "fbias", "bss", "fss_width1", "fss_width3"]
-non_perfdiag_metrics_name = ["Root Mean Square Error and Spread", "Mean Error (Bias) and Mean Absolute Error", "Continuous Ranked Probability Score", "Equitable Threat Score", "Frequency Bias", "Brier Skill Score", "Fractions Skill Score - Width 1", "Fractions Skill Score - Width 3"]
+non_perfdiag_metrics = ["rmse_sprd", "me_mae", "crps", "ets", "fbias", "bss", "fss_width1", "fss_width3", "s1", "fstdev", "fgbar", "fgmag", "mag_rmse", "laplace_rmse"]
+non_perfdiag_metrics_name = ["Root Mean Square Error and Spread", "Mean Error (Bias) and Mean Absolute Error", "Continuous Ranked Probability Score", "Equitable Threat Score", "Frequency Bias", "Brier Skill Score", "Fractions Skill Score - Width 1", "Fractions Skill Score - Width 3", "S1 Score", "Forecast Standard Deviation", "Mean Absolute Value of Forecast Gradients", "Mean Forecast Gradient Magnitudes", "RMSE of Gradient Magnitudes", "RMSE of the Laplace Transformed Gradient Magnitudes"]
 no_thresholds = ["."]
 no_thresholds_name=["None"]
 non_perfdiag_thresholds = ["_gt1.", "_gt5.", "_gt10.", "_gt25.", "_gt50."]
@@ -233,7 +257,7 @@ function initialize(){
 	imageObj = {
 	        plottype: "timeseries",
 		metric: "bss",
-	        daterange: "last90days",
+	        daterange: "last31days",
 		validhour: "12",
 		forecasthour: "120",
 		region: "g212_buk_conus",

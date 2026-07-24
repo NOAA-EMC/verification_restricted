@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Global-EAGLE-Solo (deterministic) Verification - Experimental - Atmospheric G2G: Forecast Mean Variables</title>
+<title>GFS Verification - Experimental - Atmospheric G2G: NWP Index</title>
 <link rel="stylesheet" type="text/css" href="../../../../gfs_style.css">
 <script src="../../../../jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="functions_base.js"></script>
@@ -12,7 +12,7 @@
 <body>
 <!-- Head element -->
 <div class="page-top">
-        <span><a style="color:#ffffff">GRID-TO-GRID (ATMOSPHERIC): FORECAST MEAN VARIABLES</a></span>
+        <span><a style="color:#ffffff">GRID-TO-GRID (ATMOSPHERIC): NWP INDEX</a></span>
 </div>
 
 <!-- Top menu -->
@@ -45,18 +45,6 @@
 </div></div>
 <!-- Middle menu -->
 
-<!-- Bottom menu -->
-<div class="page-menu"><div class="table">
-        <div class="element">
-		<span class="bold" style="color:#FF0000">Select Region and Variable Information: </span><span class="bold">Region:</span>
-                <select id="region" onchange="changeRegion(this.value);"></select>
-	</div>
-        <div class="element">
-                <span class="bold">Variable:</span>
-                <select id="variable" onchange="changeVariable(this.value);"></select>
-        </div>
-</div></div>
-<!-- Bottom menu -->
 
 <!-- Images -->
 <div id="page-map">
@@ -80,7 +68,7 @@
 //User-defined years
 //====================================================================================================
 
-var url = "https://www.emc.ncep.noaa.gov/users/verification_restricted/global/aigfs/dev/atmos/grid2grid/images/evs.global_det.MMM.VVV.DDD.PPP_validHHHz_fFFF.g004_RRR.png";
+var url = "https://www.emc.ncep.noaa.gov/users/verification_restricted/global/nwp_index/expr/atmos/grid2grid/images/evs.global_det.MMM.DDD.PPP_validHHHz_fFFF.g004_nwp_index_regions.png";
 
 //====================================================================================================
 //Add years & months
@@ -91,9 +79,6 @@ var metrics = [];
 var dateranges = [];
 var validhours = [];
 var forecasthours = [];
-var levels = [];
-var regions = [];
-var variables = [];
 
 plottypes.push({
         displayName: "Time Series",
@@ -101,8 +86,8 @@ plottypes.push({
 });
 
 metrics.push({
-        displayName: "Forecast Mean",
-        name: "fbar",
+        displayName: "NWP Index",
+        name: "nwp_index",
 });
 
 dateranges.push({
@@ -119,145 +104,17 @@ validhours.push({
         name: "00",
 });
 validhours.push({
-        displayName: "06Z",
-        name: "06",
-});
-validhours.push({
         displayName: "12Z",
         name: "12",
 });
-validhours.push({
-        displayName: "18Z",
-        name: "18",
-});
 
-forecasthours.push({
-        displayName: "F024",
-        name: "024",
-});
-forecasthours.push({
-        displayName: "F048",
-        name: "048",
-});
-forecasthours.push({
-        displayName: "F072",
-        name: "072",
-});
-forecasthours.push({
-        displayName: "F096",
-        name: "096",
-});
 forecasthours.push({
         displayName: "F120",
         name: "120",
 });
-forecasthours.push({
-        displayName: "F144",
-        name: "144",
-});
-forecasthours.push({
-        displayName: "F168",
-        name: "168",
-});
-forecasthours.push({
-        displayName: "F192",
-        name: "192",
-});
-forecasthours.push({
-        displayName: "F216",
-        name: "216",
-});
-forecasthours.push({
-        displayName: "F240",
-        name: "240",
-});
-forecasthours.push({
-        displayName: "F264",
-        name: "264",
-});
-forecasthours.push({
-        displayName: "F288",
-        name: "288",
-});
-forecasthours.push({
-        displayName: "F312",
-        name: "312",
-});
-forecasthours.push({
-        displayName: "F336",
-        name: "336",
-});
-forecasthours.push({
-        displayName: "F360",
-        name: "360",
-});
-forecasthours.push({
-        displayName: "F384",
-        name: "384",
-});
 
-regions.push({
-        displayName: "Global",
-        name: "glb",
-});
-regions.push({
-        displayName: "Northern Hemisphere",
-        name: "nhem",
-});
-regions.push({
-        displayName: "Southern Hemisphere",
-        name: "shem",
-});
-regions.push({
-        displayName: "Tropics",
-        name: "tropics",
-});
-regions.push({
-        displayName: "CONUS",
-        name: "buk_conus",
-});
-regions.push({
-        displayName: "60N-90N",
-        name: "n60",
-});
-regions.push({
-        displayName: "60S-90S",
-        name: "s60",
-});
-regions.push({
-        displayName: "North Atlantic Ocean",
-        name: "nao",
-});
-regions.push({
-        displayName: "South Atlantic Ocean",
-        name: "sao",
-});
-regions.push({
-        displayName: "North Pacific Ocean",
-        name: "npo",
-});
-regions.push({
-        displayName: "South Pacific Ocean",
-        name: "spo",
-});
 
-variables.push({
-        displayName: "2 meter Temperature",
-        name: "tmp_z2",
-});
-variables.push({
-        displayName: "Sea-level Pressure",
-        name: "prmsl_z0",
-});
-variables.push({
-        displayName: "10 meter U Wind",
-        name: "ugrd_z10",
-});
-variables.push({
-        displayName: "10 meter V Wind",
-        name: "vgrd_z10",
-});
-
+timeseries_forecasthours = ["120"]
 //====================================================================================================
 //Initialize the page
 //====================================================================================================
@@ -278,12 +135,10 @@ function initialize(){
 	//Set image object based on default years
 	imageObj = {
 	        plottype: "timeseries",
-		metric: "fbar",
+		metric: "nwp_index",
 	        daterange: "last31days",
 		validhour: "00",
-		forecasthour: "024",
-		region: "glb",
-		variable: "tmp_z2"
+		forecasthour: "120",
         };
 
 
@@ -327,38 +182,12 @@ function initialize(){
                 }
 	}
 
-        //Change level based on passed argument, if any
-        var passed_level = "";
-        if(passed_level!=""){
-                if(searchByName(passed_level,levels)>=0){
-                        imageObj.level = passed_level;
-                }
-        }
-
-
-	//Change region based on passed argument, if any
-        var passed_region = "";
-        if(passed_region!=""){
-                if(searchByName(passed_region,regions)>=0){
-                        imageObj.region = passed_region;
-                }
-	}
-
-	//Change variable based on passed argument, if any
-        var passed_variable = "";
-        if(passed_variable!=""){
-                if(searchByName(passed_variable,variables)>=0){
-                        imageObj.variable = passed_variable;
-                }
-        }
 	//Populate forecast hour and dprog/dt arrays for this run and frame
 	populateMenu('plottype');
 	populateMenu('metric');
 	populateMenu('daterange');
 	populateMenu('validhour');
 	populateMenu('forecasthour');
-	populateMenu('variable');
-	populateMenu('region');
 
 	//Preload images and display map
 	preload(imageObj);

@@ -113,10 +113,6 @@ metrics.push({
 });
 
 dateranges.push({
-        displayName: "Last 31 Days",
-        name: "last31days",
-});
-dateranges.push({
         displayName: "Last 90 Days",
         name: "last90days",
 });
@@ -139,60 +135,24 @@ forecasthours.push({
         name: "024",
 });
 forecasthours.push({
-        displayName: "F048",
-        name: "048",
-});
-forecasthours.push({
         displayName: "F072",
         name: "072",
-});
-forecasthours.push({
-        displayName: "F096",
-        name: "096",
 });
 forecasthours.push({
         displayName: "F120",
         name: "120",
 });
 forecasthours.push({
-        displayName: "F144",
-        name: "144",
-});
-forecasthours.push({
         displayName: "F168",
         name: "168",
-});
-forecasthours.push({
-        displayName: "F192",
-        name: "192",
-});
-forecasthours.push({
-        displayName: "F216",
-        name: "216",
 });
 forecasthours.push({
         displayName: "F240",
         name: "240",
 });
 forecasthours.push({
-        displayName: "F264",
-        name: "264",
-});
-forecasthours.push({
-        displayName: "F288",
-        name: "288",
-});
-forecasthours.push({
         displayName: "F312",
         name: "312",
-});
-forecasthours.push({
-        displayName: "F336",
-        name: "336",
-});
-forecasthours.push({
-        displayName: "F360",
-        name: "360",
 });
 forecasthours.push({
         displayName: "F384",
@@ -221,16 +181,12 @@ levels.push({
         name: "850",
 });
 levels.push({
-        displayName: "500 hPa",
-        name: "500",
-});
-levels.push({
         displayName: "250 hPa",
         name: "250",
 });
 
 
-timeseries_forecasthours = ["024", "048", "072", "096", "120", "144", "168", "192", "216", "240", "264", "288", "312", "336", "360", "384"]
+timeseries_forecasthours = ["024", "072", "120", "168", "240", "312", "384"] 
 fhrmean_forecasthours = ["384"]
 leaddate_forecasthours = ["384"]
 //====================================================================================================
@@ -254,7 +210,7 @@ function initialize(){
 	imageObj = {
 	        plottype: "timeseries",
 		metric: "acc",
-	        daterange: "last31days",
+	        daterange: "last90days",
 		validhour: "00",
 		forecasthour: "120",
 		level: "850",

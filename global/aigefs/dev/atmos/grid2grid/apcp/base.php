@@ -133,10 +133,6 @@ metrics.push({
 });
 
 dateranges.push({
-        displayName: "Last 31 Days",
-        name: "last31days",
-});
-dateranges.push({
         displayName: "Last 90 Days",
         name: "last90days",
 });

@@ -221,7 +221,7 @@ function initialize(){
 	imageObj = {
 	        plottype: "timeseries",
 		metric: "rmse_sprd",
-	        daterange: "last90days",
+	        daterange: "last31days",
 		validhour: "00z",
 		forecasthour: "120",
 		level: "p850",
