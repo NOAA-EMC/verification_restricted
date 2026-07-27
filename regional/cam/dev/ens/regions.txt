@@ -1,0 +1,89 @@
+regions.push({
+        displayName: "CONUS",
+        name: "buk_conus",
+});
+regions.push({
+        displayName: "CONUS - East",
+        name: "buk_conus_e",
+});
+regions.push({
+        displayName: "CONUS - West",
+        name: "buk_conus_w",
+});
+regions.push({
+        displayName: "CONUS - South",
+        name: "buk_conus_s",
+});
+regions.push({
+        displayName: "CONUS - Central",
+        name: "buk_conus_c",
+});
+regions.push({
+        displayName: "Appalachia",
+        name: "buk_apl",
+});
+regions.push({
+        displayName: "Central Plains",
+        name: "buk_cpl",
+});
+regions.push({
+        displayName: "Deep South",
+        name: "buk_ds",
+});
+regions.push({
+        displayName: "Great Basin",
+        name: "buk_grb",
+});
+regions.push({
+        displayName: "Great Lakes",
+        name: "buk_grlk",
+});
+regions.push({
+        displayName: "Mid-Atlantic",
+        name: "buk_matl",
+});
+regions.push({
+        displayName: "Mezqutial",
+        name: "buk_mez",
+});
+regions.push({
+        displayName: "Northeast/North Atlantic",
+        name: "buk_ne",
+});
+regions.push({
+        displayName: "Northern Plains",
+        name: "buk_npl",
+});
+regions.push({
+        displayName: "Northern Rockies",
+        name: "buk_nrk",
+});
+regions.push({
+        displayName: "Pacific Northwest",
+        name: "buk_npw",
+});
+regions.push({
+        displayName: "Prairie",
+        name: "buk_pra",
+});
+regions.push({
+        displayName: "Pacific Southwest",
+        name: "buk_psw",
+});
+regions.push({
+        displayName: "Southeast",
+        name: "buk_se",
+});
+regions.push({
+        displayName: "Southwest",
+        name: "buk_sw",
+});
+regions.push({
+        displayName: "Southern Plains",
+        name: "buk_spl",
+});
+regions.push({
+        displayName: "Southern Rockies",
+        name: "buk_srk",
+});
+

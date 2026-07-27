@@ -1,0 +1,331 @@
+<!DOCTYPE html							<!DOCTYPE html
+<html>								<html>
+<head>								<head>
+<meta charset="UTF-8">						<meta charset="UTF-8">
+<title>HREF SPCoutlook Areas Verification - Parallel</title>  |	<title>RRFS Ensemble SPCoutlook Areas Verification - Parallel
+<link rel="stylesheet" type="text/css" href="../../../style_c	<link rel="stylesheet" type="text/css" href="../../../style_c
+<script src="https://www.emc.ncep.noaa.gov/users/verification	<script src="https://www.emc.ncep.noaa.gov/users/verification
+<script type="text/javascript" src="functions_base.js"></scri	<script type="text/javascript" src="functions_base.js"></scri
+<meta name="viewport" content="width=device-width, initial-sc	<meta name="viewport" content="width=device-width, initial-sc
+</head>								</head>
+
+<body>								<body>
+<!-- Head element -->						<!-- Head element -->
+<div class="page-top">						<div class="page-top">
+        <span><a style="color:#ffffff">HREF: CAPE over SPC Ou |	        <span><a style="color:#ffffff">RRFS Ensemble: CAPE ov
+</div>								</div>
+
+<!-- Top menu -->						<!-- Top menu -->
+<div class="page-menu"><div class="table">			<div class="page-menu"><div class="table">
+        <div class="element">					        <div class="element">
+                <span class="bold" style="color:#FF0000">Sele	                <span class="bold" style="color:#FF0000">Sele
+                <select id="plottype" onchange="changePlotTyp	                <select id="plottype" onchange="changePlotTyp
+	</div>								</div>
+        <div class="element">					        <div class="element">
+		<span class="bold">Metric:</span>				<span class="bold">Metric:</span>
+                <select id="metric" onchange="changeMetric(th	                <select id="metric" onchange="changeMetric(th
+        </div>							        </div>
+</div></div>							</div></div>
+<!-- /Top menu -->						<!-- /Top menu -->
+
+<!-- Middle menu -->						<!-- Middle menu -->
+<div class="page-menu"><div class="table">			<div class="page-menu"><div class="table">
+        <div class="element">					        <div class="element">
+                <span class="bold" style="color:#FF0000">Sele	                <span class="bold" style="color:#FF0000">Sele
+                <select id="daterange" onchange="changeDateRa	                <select id="daterange" onchange="changeDateRa
+	</div>								</div>
+        <div class="element">					        <div class="element">
+                <span class="bold">Valid Hour:</span>		                <span class="bold">Valid Hour:</span>
+                <select id="validhour" onchange="changeValidH	                <select id="validhour" onchange="changeValidH
+	</div>								</div>
+        <div class="element">					        <div class="element">
+		<span class="bold">Forecast Hour:</span>			<span class="bold">Forecast Hour:</span>
+                <select id="forecasthour" onchange="changeFor	                <select id="forecasthour" onchange="changeFor
+        </div>							        </div>
+</div></div>							</div></div>
+<!-- Middle menu -->						<!-- Middle menu -->
+
+<!-- Bottom menu -->						<!-- Bottom menu -->
+<div class="page-menu"><div class="table">			<div class="page-menu"><div class="table">
+        <div class="element">					        <div class="element">
+		<span class="bold" style="color:#FF0000">Sele			<span class="bold" style="color:#FF0000">Sele
+                <select id="region" onchange="changeRegion(th	                <select id="region" onchange="changeRegion(th
+	</div>								</div>
+        <div class="element">					        <div class="element">
+                <span class="bold">Day:</span>			                <span class="bold">Day:</span>
+                <select id="level" onchange="changeLevel(this	                <select id="level" onchange="changeLevel(this
+        </div>							        </div>
+	<div class="element">						<div class="element">
+            <span class="bold"> Field:</span>			            <span class="bold"> Field:</span>
+            <select id="field" onchange="changeField(this.val	            <select id="field" onchange="changeField(this.val
+        </div>							        </div>
+</div></div>							</div></div>
+<!-- Bottom menu -->						<!-- Bottom menu -->
+
+<!-- Images -->							<!-- Images -->
+<div id="page-map">						<div id="page-map">
+<table id="tbl-map" style="margin:auto">			<table id="tbl-map" style="margin:auto">
+     <tbody>							     <tbody>
+       <tr>							       <tr>
+        <td id ="td-map">					        <td id ="td-map">
+           <img name="map_image" src="../latest/model_latest.	           <img name="map_image" src="../latest/model_latest.
+        </td>							        </td>
+      </tr>							      </tr>
+    </tbody>							    </tbody>
+</table>							</table>
+</div>								</div>
+
+<!-- /Footer -->						<!-- /Footer -->
+<div class="page-footer">					<div class="page-footer">
+        <span></div>						        <span></div>
+
+<script type="text/javascript">					<script type="text/javascript">
+//===========================================================	//===========================================================
+//User-defined years						//User-defined years
+//===========================================================	//===========================================================
+
+
+var url = "https://www.emc.ncep.noaa.gov/users/verification/r |	var url = "https://www.emc.ncep.noaa.gov/users/verification/r
+
+//===========================================================	//===========================================================
+//Add years & months						//Add years & months
+//===========================================================	//===========================================================
+
+var plottypes = [];						var plottypes = [];
+var metrics = [];						var metrics = [];
+var dateranges = [];						var dateranges = [];
+var validhours = [];						var validhours = [];
+var forecasthours = [];						var forecasthours = [];
+var wavedecomps = [];						var wavedecomps = [];
+var levels = [];						var levels = [];
+var regions = [];						var regions = [];
+var fields = [];						var fields = [];
+
+plottypes.push({						plottypes.push({
+        displayName: "Performance Diagram",			        displayName: "Performance Diagram",
+        name: "perfdiag",					        name: "perfdiag",
+});								});
+
+metrics.push({							metrics.push({
+        displayName: "Performance",				        displayName: "Performance",
+        name: "ctc",						        name: "ctc",
+});								});
+
+dateranges.push({						dateranges.push({
+        displayName: "Last 31 Days",				        displayName: "Last 31 Days",
+        name: "last31days",				      |	        name: "past31days",
+});							      <
+dateranges.push({					      <
+        displayName: "Last 90 Days",			      <
+        name: "last90days",				      <
+});								});
+
+//validhours.push({						//validhours.push({
+//        displayName: "All available times(MLCAPE)",		//        displayName: "All available times(MLCAPE)",
+//        name: "00z_03z_06z_09z_12z_15z_18z_21z",		//        name: "00z_03z_06z_09z_12z_15z_18z_21z",
+//});								//});
+validhours.push({						validhours.push({
+        displayName: "00Z, 12Z ",				        displayName: "00Z, 12Z ",
+        name: "12",						        name: "12",
+});								});
+
+							      >	forecasthours.push({
+							      >	        displayName: "48",
+							      >		name: "48"
+							      >	});
+
+regions.push({							regions.push({
+        displayName: "ThunderStorm",				        displayName: "ThunderStorm",
+        name: "tstm",						        name: "tstm",
+});								});
+regions.push({							regions.push({
+        displayName: "Marginal",				        displayName: "Marginal",
+        name: "mrgl",						        name: "mrgl",
+});								});
+regions.push({							regions.push({
+        displayName: "Slight",					        displayName: "Slight",
+        name: "slgt",						        name: "slgt",
+});								});
+regions.push({							regions.push({
+        displayName: "Enhanced",				        displayName: "Enhanced",
+        name: "enh",						        name: "enh",
+});								});
+regions.push({							regions.push({
+        displayName: "Moderate",				        displayName: "Moderate",
+        name: "mdt",						        name: "mdt",
+});								});
+regions.push({							regions.push({
+        displayName: "High",					        displayName: "High",
+        name: "high",						        name: "high",
+});								});
+
+fields.push({							fields.push({
+        displayName: "Surface CAPE",			      |	        displayName: "Surface CAPE"f
+        name: "cape_l0",					        name: "cape_l0",
+});								});
+fields.push({							fields.push({
+        displayName: "Mid Level CAPE",				        displayName: "Mid Level CAPE",
+        name: "mlcape_ml",					        name: "mlcape_ml",
+});								});
+
+levels.push({							levels.push({
+        displayName: "Day 1",					        displayName: "Day 1",
+        name: "day1",						        name: "day1",
+});								});
+levels.push({							levels.push({
+        displayName: "Day 2",					        displayName: "Day 2",
+        name: "day2",						        name: "day2",
+});levels.push({					      |	});
+							      >	levels.push({
+        displayName: "Day 3",					        displayName: "Day 3",
+        name: "day3",						        name: "day3",
+});								});
+
+
+timeseries_forecasthours = ["120", "240", "360"]		timeseries_forecasthours = ["120", "240", "360"]
+fhrmean_forecasthours = ["48"]					fhrmean_forecasthours = ["48"]
+leaddate_forecasthours = ["84"]					leaddate_forecasthours = ["84"]
+thresholdmean_forecasthours = ["84"]				thresholdmean_forecasthours = ["84"]
+perfdiag_forecasthours = ["48"]					perfdiag_forecasthours = ["48"]
+crps_wavedecomps = ["apcp", "apcp_decomp_0_3", "apcp_decomp_4	crps_wavedecomps = ["apcp", "apcp_decomp_0_3", "apcp_decomp_4
+crps_wavedecomps_name = ["None", "Waves 0-3", "Waves 4-9", "W	crps_wavedecomps_name = ["None", "Waves 0-3", "Waves 4-9", "W
+s1_wavedecomps = ["apcp"]					s1_wavedecomps = ["apcp"]
+s1_wavedecomps_name = ["None"]					s1_wavedecomps_name = ["None"]
+level_no_wave_decomps = ["apcp"]				level_no_wave_decomps = ["apcp"]
+level_no_wave_decomps_name = ["None"]				level_no_wave_decomps_name = ["None"]
+level_yes_wave_decomps = ["apcp", "apcp_decomp_0_3", "apcp_de	level_yes_wave_decomps = ["apcp", "apcp_decomp_0_3", "apcp_de
+level_yes_wave_decomps_name = ["None", "Waves 0-3", "Waves 4-	level_yes_wave_decomps_name = ["None", "Waves 0-3", "Waves 4-
+//===========================================================	//===========================================================
+//Initialize the page						//Initialize the page
+//===========================================================	//===========================================================
+
+//function for keyboard controls				//function for keyboard controls
+//document.onkeydown = keys;					//document.onkeydown = keys;
+
+//Decare object containing data about the currently displayed	//Decare object containing data about the currently displayed
+imageObj = {};							imageObj = {};
+
+//Initialize the page						//Initialize the page
+initialize();							initialize();
+
+
+//Initialize the page						//Initialize the page
+function initialize(){						function initialize(){
+									
+	//Set image object based on default years			//Set image object based on default years
+	imageObj = {							imageObj = {
+	        plottype: "perfdiag",					        plottype: "perfdiag",
+		metric: "ctc",							metric: "ctc",
+	        daterange: "last31days",		      |		        daterange: "past31days",
+		validhour: "12",						validhour: "12",
+		forecasthour: "48",						forecasthour: "48",
+		wavedecomp: "apcp",						wavedecomp: "apcp",
+		level: "day1",							level: "day1",
+                field: "cape_l0",				                field: "cape_l0",
+		region: "tstm",							region: "tstm",
+        };							        };
+
+
+        //Change plot type based on passed argument, if any	        //Change plot type based on passed argument, if any
+        var passed_plottype = "";				        var passed_plottype = "";
+        if(passed_plottype!=""){				        if(passed_plottype!=""){
+                if(searchByName(passed_plottype,plottypes)>=0	                if(searchByName(passed_plottype,plottypes)>=0
+                        imageObj.plottype = passed_plottype;	                        imageObj.plottype = passed_plottype;
+                }						                }
+	}								}
+
+	//Change metric based on passed argument, if any		//Change metric based on passed argument, if any
+        var passed_metric = "";					        var passed_metric = "";
+        if(passed_metric!=""){					        if(passed_metric!=""){
+                if(searchByName(passed_metric,metrics)>=0){	                if(searchByName(passed_metric,metrics)>=0){
+                        imageObj.metrics = passed_metric;	                        imageObj.metrics = passed_metric;
+                }						                }
+	}								}
+
+	//Change date range based on passed argument, if any		//Change date range based on passed argument, if any
+        var passed_daterange = "";				        var passed_daterange = "";
+        if(passed_daterange!=""){				        if(passed_daterange!=""){
+                if(searchByName(passed_daterange,dateranges)>	                if(searchByName(passed_daterange,dateranges)>
+                        imageObj.daterange = passed_daterange	                        imageObj.daterange = passed_daterange
+                }						                }
+	}								}
+
+	//Change valid hour based on passed argument, if any		//Change valid hour based on passed argument, if any
+        var passed_validhour = "";				        var passed_validhour = "";
+        if(passed_validhour!=""){				        if(passed_validhour!=""){
+                if(searchByName(passed_validhour,validhours)>	                if(searchByName(passed_validhour,validhours)>
+                        imageObj.validhour = passed_validhour	                        imageObj.validhour = passed_validhour
+                }						                }
+	}								}
+
+	//Change forecast hour based on passed argument, if a		//Change forecast hour based on passed argument, if a
+        var passed_forecasthour = "";				        var passed_forecasthour = "";
+        if(passed_forecasthour!=""){				        if(passed_forecasthour!=""){
+                if(searchByName(passed_forecasthour,forecasth	                if(searchByName(passed_forecasthour,forecasth
+                        imageObj.forecasthour = passed_foreca	                        imageObj.forecasthour = passed_foreca
+                }						                }
+	}								}
+
+	//Change wave decomp based on passed argument, if any		//Change wave decomp based on passed argument, if any
+        var passed_wavedecomp = "";				        var passed_wavedecomp = "";
+        if(passed_wavedecomp!=""){				        if(passed_wavedecomp!=""){
+                if(searchByName(passed_wavedecomp,wavedecomps	                if(searchByName(passed_wavedecomp,wavedecomps
+                        imageObj.wavedecomp = passed_wavedeco	                        imageObj.wavedecomp = passed_wavedeco
+                }						                }
+	}								}
+
+        //Change level based on passed argument, if any		        //Change level based on passed argument, if any
+        var passed_level = "";					        var passed_level = "";
+        if(passed_level!=""){					        if(passed_level!=""){
+                if(searchByName(passed_level,levels)>=0){	                if(searchByName(passed_level,levels)>=0){
+                        imageObj.level = passed_level;		                        imageObj.level = passed_level;
+                }						                }
+        }							        }
+
+
+	//Change region based on passed argument, if any		//Change region based on passed argument, if any
+        var passed_region = "";					        var passed_region = "";
+        if(passed_region!=""){					        if(passed_region!=""){
+                if(searchByName(passed_region,regions)>=0){	                if(searchByName(passed_region,regions)>=0){
+                        imageObj.region = passed_region;	                        imageObj.region = passed_region;
+                }						                }
+	}								}
+        //Change field based on passed argument, if any		        //Change field based on passed argument, if any
+	var passed_field = "";						var passed_field = "";
+	if(passed_field!=""){						if(passed_field!=""){
+	        if(searchByName(passed_field,fields)>=0){		        if(searchByName(passed_field,fields)>=0){
+	          imageObj.field = passed_field;			          imageObj.field = passed_field;
+	        }							        }
+	}								}
+	//Populate forecast hour and dprog/dt arrays for this		//Populate forecast hour and dprog/dt arrays for this
+	populateMenu('plottype');					populateMenu('plottype');
+	populateMenu('metric');						populateMenu('metric');
+	populateMenu('daterange');					populateMenu('daterange');
+	populateMenu('validhour');					populateMenu('validhour');
+	populateMenu('forecasthour');					populateMenu('forecasthour');
+	populateMenu('field');						populateMenu('field');
+	populateMenu('level');						populateMenu('level');
+	populateMenu('region');						populateMenu('region');
+
+	changePlotType("perfdiag");					changePlotType("perfdiag");
+	changeForecastHour("48");					changeForecastHour("48");
+	changeMetric("ctc");						changeMetric("ctc");
+	changeLevel("12");						changeLevel("12");
+        changeField("cape_l0");					        changeField("cape_l0");
+	//Preload images and display map				//Preload images and display map
+	preload(imageObj);						preload(imageObj);
+	showImage();							showImage();
+									
+	//Update mobile display for swiping				//Update mobile display for swiping
+	updateMobile();							updateMobile();
+
+}								}
+
+var xInit = null;                                            	var xInit = null;                                            
+var yInit = null;                  				var yInit = null;                  
+var xPos = null;						var xPos = null;
+var yPos = null;						var yPos = null;
+
+
+</script>							</script>
+</body></html>							</body></html>
