@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GFS Verification - Development - Atmospheric G2G: Vector Wind</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<link href="../../../../../../style/default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../../../../../../style/fonts.css" rel="stylesheet" type="text/css" media="all" />
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+<style>
+.dropdown-content a {padding: 0.5em 0.5em;}
+</style>
+<script src="//dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOC&amp;subagency=NOAA" id="_fed_an_ua_tag"></script>
+</head>
+
+<script>
+function createDropdown(opt) {
+  /* When the user clicks on the button, 
+     toggle between hiding and showing the dropdown content */
+  document.getElementById(opt.nextElementSibling.id).classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  var oFrame = document.getElementById("body_frame");
+  oFrame.contentWindow.document.onclick = function() {
+        var i;
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+  };
+  if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+          }
+      }
+  }
+  if (event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (event.target.nextElementSibling.id != openDropdown.id) {
+              if (openDropdown.classList.contains('show')) {
+                  openDropdown.classList.remove('show');
+               }
+          }
+      }
+  }
+}
+</script>
+
+<body>
+<div id="page" class="container">
+	<div id="header">
+		<div id="logo">
+			<img src="../../../../../../style/images/noaa.png" alt="" width="100" />
+			<img src="../../../../../../style/images/nws.png" alt="" width="100" />
+			<h1><font color="white">Operational<br>GFS<br>Verification</font></h1>
+		</div>
+		<div id="menu">
+		        <ul>
+			    <li><a href="../../../" accesskey="1" title="">HOME</a></li>
+			    <div class="dropdown">
+                                <button onclick="createDropdown(this)" class="dropbtn" id="active" accesskey="2">GRID-TO-GRID (ATMOSPHERIC) &rsaquo;&rsaquo;</button>
+                                     <div id="Dropdown_atmos_grid2grid" class="dropdown-content">
+                                         <a href="../hgt">Geopotential Height</a>
+                                         <a href="../tmp">Temperature</a>
+                                         <a href="../ugrd">U Wind</a>
+                                         <a href="../vgrd">V Wind</a>
+                                         <a href="../ugrd_vgrd">Vector Wind</a>
+                                         <a href="../prmsl">Sea-level Pressure</a>
+                                         <a href="../precip">Precipitation</a>
+					 <a href="../precip_maps">Precipitation (maps)</a>
+                                         <a href="../snowfall">Snowfall</a>
+                                         <a href="../sst">Sea Surface Temperature</a>
+                                         <a href="../ice_conc">Sea Ice Concentration</a>
+                                         <a href="../ice_extent">Sea Ice Extent</a>
+                                         <a href="../hgt_anom">Geopotential Height Anomalies</a>
+                                         <a href="../ozone">Ozone</a>
+                                         <a href="../wind_shear">Wind Shear</a>
+                                     </div>
+                            </div>
+			    <div class="dropdown">
+                                <button onclick="createDropdown(this)" class="dropbtn" accesskey="3">GRID-TO-OBS (ATMOSPHERIC) &rsaquo;&rsaquo;</button>
+                                     <div id="Dropdown_atmos_grid2obs" class="dropdown-content">
+                                         <a href="../../grid2obs/hgt">Geopotential Height</a>
+                                         <a href="../../grid2obs/tmp">Temperature</a>
+                                         <a href="../../grid2obs/ugrd">U Wind</a>
+                                         <a href="../../grid2obs/vgrd">V Wind</a>
+                                         <a href="../../grid2obs/ugrd_vgrd">Vector Wind</a>
+                                         <a href="../../grid2obs/spfh">Specific Humidity</a>
+                                         <a href="../../grid2obs/rh">Relative Humidity</a>
+                                         <a href="../../grid2obs/cape">CAPE</a>
+                                         <a href="../../grid2obs/prmsl">Sea-level Pressure</a>
+                                         <a href="../../grid2obs/tmp_2m">2 m Temperature</a>
+                                         <a href="../../grid2obs/dpt_2m">2 m Dewpoint</a>
+                                         <a href="../../grid2obs/rh_2m">2 m Relative Humidity</a>
+                                         <a href="../../grid2obs/ugrd_10m">10 m U Wind</a>
+                                         <a href="../../grid2obs/vgrd_10m">10 m V Wind</a>
+                                         <a href="../../grid2obs/ugrd_vgrd_10m">10 m Vector Wind</a>
+                                         <a href="../../grid2obs/gust">Wind Gust</a>
+                                         <a href="../../grid2obs/pbl_hgt">PBL Height</a>
+                                         <a href="../../grid2obs/tmp_anom_2m">2 m Temperature Anomalies</a>
+                                         <a href="../../grid2obs/vis">Visibility</a>
+                                         <a href="../../grid2obs/ceiling">Ceiling</a>
+                                         <a href="../../grid2obs/tot_cld_cover">Total Cloud Cover</a>
+                                         <a href="../../grid2obs/ptype">Precipitation Type</a>
+                                     </div>
+                            </div>
+			    <div class="dropdown">
+                                <button onclick="createDropdown(this)" class="dropbtn" accesskey="4">GRID-TO-OBS<br>(WAVE) &rsaquo;&rsaquo;</button>
+                                     <div id="Dropdown_wave_grid2obs" class="dropdown-content">
+                                         <a href="../../../wave/grid2obs/swh">Significant Wave Height</a>
+                                         <a href="../../../wave/grid2obs/tp">Peak Period</a>
+                                         <a href="../../../wave/grid2obs/wsp">Wind Speed</a>
+					 <a href="../../../wave/grid2obs/wdir">Wind Direction</a>
+                                     </div>
+                            </div>
+                            <li><a href="../../../tropical_cyclones" accesskey="5" title="">GRID-TO-OBS (TROPICAL CYCLONES)</a></li>
+                            <div class="dropdown">
+                                <button onclick="createDropdown(this)" class="dropbtn" accesskey="6">LONG-TERM (ATMOSPHERIC) &rsaquo;&rsaquo;</button>
+                                     <div id="Dropdown_atmos_long_term" class="dropdown-content">
+                                             <a href="../../long_term/monthly_yearly_stats">Monthly and Yearly Statistics</a>
+                                             <a href="../../long_term/monthly_acc_archive">Monthly Anomaly Correlation Coefficient (ACC) Archive</a>
+                                </div>
+                            </div>
+                            <li><a href="https://www.emc.ncep.noaa.gov/users/verification/global/index.html" accesskey="7" title="">&lsaquo;&lsaquo; RETURN TO PRODUCTION<br><u>GLOBAL MODELS</u><br>VERIFICATION</a></li>
+                            <li></li>
+                        </ul>
+		</div>
+	</div>
+	<div id="main">
+		<div id="banner">
+                    <iframe id="body_frame" src="base.php" width="1100" height="1100" style="border: 1px solid black;"></iframe>
+		</div>
+		<div id="welcome">
+			<p>This page displays verification for the operational Global Forecast System (GFS) at EMC.</p>
+                        <p>DISCLAIMER: This web page is not "operational" and therefore not subject to 24-hr monitoring by NCEP's Central Operations staff.</p>
+		</div>
+                <div id="contact">
+			<p><br><b>CONTACT INFORMATION</b><br>Qi.Shi@noaa.gov - Global Determinstic Atmospheric and Wave Verification Developer<br>Olivia.Ostwald@noaa.gov - Tropical Cyclone Verification Developer<br>Alicia.Bentley@noaa.gov - Global Verification Project Lead<br>Jason.Levit@noaa.gov - Verification, Post-Processing, and Product-Generation Branch Chief
+		</div>
+		<div id="footer">
+			<img src="../../../../../../style/images/noaa.png" alt="" width="100" />
+			<img src="../../../../../../style/images/nws.png" alt="" width="100" />
+			<img src="../../../../../../style/images/commerce.png" alt="" width="100" />
+			<img src="../../../../../../style/images/usagov.png" alt="" width="100" />
+			<br>
+			<a href="https://www.weather.gov/privacy">Privacy Policy</a> | <a href="https://www.weather.gov/disclaimer">Disclaimer</a> | <a href="https://www.commerce.gov">Department of Commerce</a> | <a href="https://www.noaa.gov">NOAA</a> | <a href="https://www.weather.gov">NWS</a> | <a href="https://www.ncep.noaa.gov">NCEP</a> | <a href="https://www.emc.ncep.noaa.gov">EMC</a>
+		</div>
+		<div id="copyright">
+		</div>
+	</div>
+</div>
+</body>
+</html>
