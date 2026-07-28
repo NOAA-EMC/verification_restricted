@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Subseasonal Verification - Dev - Atmospheric G2G: Sea Surface Temperature</title>
 <link rel="stylesheet" type="text/css" href="../../../style_verif.css">
-<script src="../../../jquery-3.1.1.min.js"></script>
+<script src="../../../../../../style/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="functions_base.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>

@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>GFS Verification - Experimental - Atmospheric G2G: NWP Index</title>
+<title>NWP Index Verification - Experimental - Atmospheric G2G: NWP Index</title>
 <link rel="stylesheet" type="text/css" href="../../../../gfs_style.css">
-<script src="../../../../jquery-3.1.1.min.js"></script>
+<script src="../../../../../../style/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="functions_base.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>

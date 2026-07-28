@@ -134,28 +134,100 @@ validhours.push({
 });
 
 forecasthours.push({
+        displayName: "F006",
+        name: "_f006",
+});
+forecasthours.push({
+        displayName: "F012",
+        name: "_f012",
+});
+forecasthours.push({
+        displayName: "F018",
+        name: "_f018",
+});
+forecasthours.push({
         displayName: "F024",
         name: "_f024",
+});
+forecasthours.push({
+        displayName: "F030",
+        name: "_f030",
+});
+forecasthours.push({
+        displayName: "F036",
+        name: "_f036",
+});
+forecasthours.push({
+        displayName: "F042",
+        name: "_f042",
+});
+forecasthours.push({
+        displayName: "F048",
+        name: "_f048",
+});
+forecasthours.push({
+        displayName: "F054",
+        name: "_f054",
+});
+forecasthours.push({
+        displayName: "F060",
+        name: "_f060",
+});
+forecasthours.push({
+        displayName: "F066",
+        name: "_f066",
 });
 forecasthours.push({
         displayName: "F072",
         name: "_f072",
 });
 forecasthours.push({
+        displayName: "F096",
+        name: "_f096",
+});
+forecasthours.push({
         displayName: "F120",
         name: "_f120",
+});
+forecasthours.push({
+        displayName: "F144",
+        name: "_f144",
 });
 forecasthours.push({
         displayName: "F168",
         name: "_f168",
 });
 forecasthours.push({
+        displayName: "F192",
+        name: "_f192",
+});
+forecasthours.push({
+        displayName: "F216",
+        name: "_f216",
+});
+forecasthours.push({
         displayName: "F240",
         name: "_f240",
 });
 forecasthours.push({
+        displayName: "F264",
+        name: "_f264",
+});
+forecasthours.push({
+        displayName: "F288",
+        name: "_f288",
+});
+forecasthours.push({
         displayName: "F312",
         name: "_f312",
+});
+forecasthours.push({
+        displayName: "F336",
+        name: "_f336",
+});
+forecasthours.push({
+        displayName: "F360",
+        name: "_f360",
 });
 forecasthours.push({
         displayName: "F384",
@@ -255,7 +327,7 @@ vhrmean_validhours = [""]
 vhrmean_validhours_name = ["All"]
 non_vhrmean_validhours = ["_valid00z", "_valid06z", "_valid12z", "_valid18z"]
 non_vhrmean_validhours_name = ["00Z", "06Z", "12Z", "18Z"]
-timeseries_forecasthours = ["024", "072", "120", "168", "240", "312", "384"] 
+timeseries_forecasthours = ["006", "012", "018", "024", "030", "036", "042", "048", "054", "060", "066", "072", "096", "120", "144", "168", "192", "216", "240", "264", "288", "312", "336", "360", "384"]
 fhrmean_forecasthours = ["384"]
 vhrmean_forecasthours = [""]
 //====================================================================================================
